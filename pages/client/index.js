@@ -36,11 +36,14 @@ export default function Client() {
 
             <Header />
 
-            {
+
+            <ul>{
                 info.map(
-                    data => <p key={data.id}>{data.title}</p>
+                    data => <li key={data.id}>{data.title}</li>
                 )
             }
+            </ul>
+
 
             <form action="#" method='POST'>
                 <label>nombre</label>
