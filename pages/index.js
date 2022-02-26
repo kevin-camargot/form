@@ -11,6 +11,8 @@ export default function Home() {
 
     < div className="app" >
       <h2>Test renderings</h2>
+      <p>Version 2.0</p>
+
     </div >
   )
 }
