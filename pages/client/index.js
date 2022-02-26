@@ -38,7 +38,7 @@ export default function Client() {
 
             {
                 info.map(
-                    data => <p>{data.title}</p>
+                    data => <p key={data.id}>{data.title}</p>
                 )
             }
 
