@@ -32,7 +32,11 @@ export default function Client({ info }) {
     /* const dataSource = [...info];
     console.log(dataSource) */
 
+    async function handleSubmit(e) {
+        e.preventDefault();
 
+        console.log(e)
+    }
 
     return (
 
@@ -51,11 +55,30 @@ export default function Client({ info }) {
                 )
             }
 
-            <form action="#" method='POST'>
-                <label>nombre</label>
+            <form onSubmit={handleSubmit}>
+                <input
+                    name="email"
+                    type="email"
+                    placeholder="Enter email"
 
-                <input type="text" placeholder="correo@mysite.com"></input>
-                <button type="submit">Enviar</button>
+
+                    required
+                />
+                <textarea
+                    name="message"
+                    placeholder="Enter message"
+
+
+                    required
+                />
+                <input type="file" name="file" />
+                <input
+                    name="bot-field"
+                    type="text"
+
+                    style={{ display: "none" }}
+                />
+                <button type="submit">Send</button>
             </form>
         </div >
     )
