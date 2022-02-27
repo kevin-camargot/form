@@ -3,17 +3,29 @@ import Head from 'next/head'
 import Header from '../../components/header'
 
 export async function getStaticProps() {
+
+
+
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
     const info = await res.json()
     return {
         props: {
-            info,
+            info
+
         },
     }
 }
-export default function Client({ info }) {
-    return (
+const handleSubmit = () => {
+    e.preventDefault();
 
+    console.log(e)
+
+}
+const testButton = () => {
+    alert("click en click me")
+}
+export default function Static({ info }) {
+    return (
         <div className="app">
             <Head>
                 <title>This page has for form test</title>
@@ -26,9 +38,10 @@ export default function Client({ info }) {
                     data => <li key={data.id}>{data.title}</li>
                 )
             }
-            <form action="#" method='POST'>
-                <label>nombre</label>
+            <button type="button" onClick={testButton}>Click me</button>
 
+            <form onSubmit={handleSubmit} method='POST'>
+                <label>nombre</label>
                 <input type="text" placeholder="correo@mysite.com"></input>
                 <button type="submit">Enviar</button>
             </form>
