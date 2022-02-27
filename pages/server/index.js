@@ -14,6 +14,7 @@ export async function getServerSideProps() {
             info,
         },
     }
+
 }
 
 export default function Client({ info }) {

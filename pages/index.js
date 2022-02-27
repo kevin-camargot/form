@@ -5,40 +5,38 @@ import { DatePicker, Table } from 'antd';
 
 
 export default function Home() {
-  async function handleSubmit(e) {
-    e.preventDefault();
 
-    console.log(e)
+
+  const registerUser = async event => {
+    event.preventDefault()
+
+    const res = await fetch('/api/register', {
+      body: JSON.stringify({
+        name: event.target.name.value
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST'
+    })
+
+    const result = await res.json()
+    // result.user => 'Ada Lovelace'
+    console.log(result)
   }
+
+
   return (
     <div className="app" >
       <h2>Test renderings</h2>
       <p>Version 2.0</p>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          name="email"
-          type="email"
-          placeholder="Enter email"
-
-
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Enter message"
-
-
-          required
-        />
-        <input type="file" name="file" />
-        <input
-          name="bot-field"
-          type="text"
-
-          style={{ display: "none" }}
-        />
-        <button type="submit">Send</button>
+      <form action="/api/form" method="post">
+        <label for="first">First name:</label>
+        <input type="text" id="first" name="first" />
+        <label for="last">Last name:</label>
+        <input type="text" id="last" name="last" />
+        <button type="submit">Submit</button>
       </form>
 
     </div >
