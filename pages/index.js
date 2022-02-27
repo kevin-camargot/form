@@ -32,9 +32,9 @@ export default function Home() {
       <p>Version 2.0</p>
 
       <form action="/api/form" method="post">
-        <label for="first">First name:</label>
+        <label htmlFor="first">First name:</label>
         <input type="text" id="first" name="first" />
-        <label for="last">Last name:</label>
+        <label htmlFor="last">Last name:</label>
         <input type="text" id="last" name="last" />
         <button type="submit">Submit</button>
       </form>
